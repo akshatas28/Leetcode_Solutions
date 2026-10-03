@@ -22,3 +22,30 @@ for i in range(row):
         if coltracker[j]==-1:
             matrix[i][j]=0
 print(matrix)
+
+# leetcode 73 - set matrix zeros
+
+import copy
+class Solution:
+    def setZeroes(self, matrix: list[list[int]]) -> None:
+        """
+        Do not return anything, modify matrix in-place instead.
+        """
+        matrix1=copy.deepcopy(matrix)
+        
+        zerorow=0
+        zerocol=0
+        for i in range(len(matrix)):
+            for j in range(len(matrix[0])):
+                if matrix1[i][j]==0:
+                    rowcount=0
+                    colcount=0
+                    zerorow=i
+                    zerocol=j
+                    while rowcount<len(matrix):
+                        matrix[rowcount][zerocol]=0
+                        rowcount+=1
+                    while colcount<len(matrix[0]):
+                        matrix[zerorow][colcount]=0
+                        colcount+=1
+        return matrix
