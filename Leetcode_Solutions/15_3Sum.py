@@ -26,3 +26,4 @@ for i in range(n-2):
             right-=1
 
 print(result)
+
