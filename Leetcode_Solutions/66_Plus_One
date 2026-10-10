@@ -1,0 +1,8 @@
+class Solution:
+    def plusOne(self, digits: list[int]) -> list[int]:
+        b="".join(str(d) for d in digits)
+        b1=int(b)
+        c=str(b1+1)
+        digits[:]=[]
+        digits.extend([int(d) for d in list(c)])
+        return digits
