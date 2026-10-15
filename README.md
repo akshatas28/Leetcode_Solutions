@@ -18,7 +18,7 @@ Problem
    ↓
 Understand constraints
    ↓
-Find the pattern
+Find the pattern (Pattern recognition)
    ↓
 Choose the data structure
    ↓
