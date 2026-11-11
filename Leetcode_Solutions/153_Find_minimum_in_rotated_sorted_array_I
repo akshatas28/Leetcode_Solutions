@@ -1,0 +1,11 @@
+left=0
+right=len(nums)-1
+minnum = float("inf")
+while left<=right:
+    mid=(left+right)//2
+    if nums[mid]<nums[right]:
+        right=mid-1
+    else:
+        left=mid+1
+    minnum=min(minnum, nums[mid])
+print(minnum)
