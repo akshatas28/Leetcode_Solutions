@@ -1,0 +1,61 @@
+# """
+# This is MountainArray's API interface.
+# You should not implement it, or speculate about its implementation
+# """
+#class MountainArray(object):
+#    def get(self, index):
+#        """
+#        :type index: int
+#        :rtype int
+#        """
+#
+#    def length(self):
+#        """
+#        :rtype int
+#        """
+
+class Solution(object):
+    def findInMountainArray(self, target, mountainArr):
+        """
+        :type target: integer
+        :type mountain_arr: MountainArray
+        :rtype: integer
+        """
+        
+        n=mountainArr.length()
+        left = 0
+        right = n-1
+        while left < right:
+            mid = (left+right)//2
+            if mountainArr.get(mid) < mountainArr.get(mid+1):
+                left = mid+1
+            else:
+                right = mid
+
+        ans=left
+        intfound=-1
+        left = 0
+        right = ans
+
+        while left<=right:
+            mid=(left+right)//2
+            if mountainArr.get(mid)==target:
+                intfound=mid
+                break
+            elif mountainArr.get(mid)<target:
+                left=mid+1
+            else:
+                right=mid-1
+        if intfound==-1:
+            left = ans + 1
+            right = n - 1
+            while left<=right:
+                mid=(left+right)//2
+                if mountainArr.get(mid)==target:
+                    intfound=mid
+                    break
+                elif mountainArr.get(mid)<target:
+                    right=mid-1
+                else:
+                    left=mid+1
+        return (intfound)
